@@ -1,17 +1,25 @@
 import os
-
 from dotenv import load_dotenv
-
 load_dotenv()
 import discord
+import responses
 import requests
-
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 class DiscordChatBot:
+
+    async def send_message(self, message, user_message, is_private):
+
+        try:
+            response = responses.handle_reponse(user_message)
+            await message.author.send(response) if is_private else await message.channel.send(response)
+        except Exception as e:
+            print(f'an error exception occured:{e}')
+
     def chat_bot_initialize(self):
-        bot = discord.Client()
+
+        bot = discord.Client(DISCORD_TOKEN)
 
         @bot.event
         async def on_ready():
@@ -37,9 +45,3 @@ class DiscordChatBot:
             if message.content == "hello":
                 # SENDS BACK A MESSAGE TO THE CHANNEL.
                 await message.channel.send("hey dirtbag")
-
-
-if __name__ == "__main__":
-# EXECUTE BOT g
-    DCB = DiscordChatBot
-    DCB.chat_bot_initialize(DISCORD_TOKEN)
