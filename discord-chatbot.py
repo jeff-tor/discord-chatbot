@@ -38,5 +38,5 @@ async def on_message(message):
         # SENDS BACK A MESSAGE TO THE CHANNEL.
         await message.channel.send("hey dirtbag")
 
-# EXECUTES THE BOT WITH THE SPECIFIED TOKEN. TOKEN HAS BEEN REMOVED AND USED JUST AS AN EXAMPLE.
-bot.run("DISCORD_TOKEN")
+# EXECUTE BOT g
+bot.run(DISCORD_TOKEN)
