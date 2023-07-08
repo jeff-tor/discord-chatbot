@@ -38,5 +38,8 @@ class DiscordChatBot:
                 # SENDS BACK A MESSAGE TO THE CHANNEL.
                 await message.channel.send("hey dirtbag")
 
+
+if __name__ == "__main__":
 # EXECUTE BOT g
-bot.run(DISCORD_TOKEN)
+    DCB = DiscordChatBot
+    DCB.chat_bot_initialize(DISCORD_TOKEN)
